@@ -56,7 +56,7 @@ public class TabButton extends JButton implements ActionListener {
      */
     private static final long serialVersionUID = 1L;
     
-    private final static MouseListener buttonMouseListener = new MouseAdapter() {
+    private static final MouseListener buttonMouseListener = new MouseAdapter() {
         @Override 
         public void mouseEntered( final MouseEvent e ) {
             Component component = e.getComponent();
