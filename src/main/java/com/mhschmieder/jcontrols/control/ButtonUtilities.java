@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -56,15 +56,16 @@ public class ButtonUtilities {
      */
     public static final char JAVAFX_MNEMONIC_MARKER = '_';
 
-    public static final String getButtonDeselectedText( final String groupName,
-                                                        final String itemName,
-                                                        final ResourceBundle resourceBundle ) {
+    public static String getButtonDeselectedText(
+            final String groupName,
+            final String itemName,
+            final ResourceBundle resourceBundle ) {
         //return getButtonText( groupName, itemName, false, resourceBundle );
         return getButtonText( groupName, itemName, resourceBundle );
     }
 
-    // TODO: Review all calling hierarchies for how selected vs. deselected
-    //  is handled, as well as examining the properties files to see if present.
+    // TODO: Review all calling hierarchies for how selected vs. deselected is
+    //  handled, as well as examining the properties files to see if present.
     public static String getButtonLabel( final String groupName,
                                          final String itemName,
                                          //final boolean selected,
@@ -75,7 +76,8 @@ public class ButtonUtilities {
         }
 
         // Composite the button name from the group and item names.
-        final String buttonName = ( ( itemName == null ) || itemName.trim().isEmpty() )
+        final String buttonName = ( ( itemName == null )
+                || itemName.trim().isEmpty() )
             ? groupName
             : groupName + "." + itemName;
 
@@ -92,18 +94,19 @@ public class ButtonUtilities {
         }
     }
 
-    public static final String getButtonSelectedText(   final String groupName,
-                                                        final String itemName,
-                                                        final ResourceBundle resourceBundle ) {
+    public static String getButtonSelectedText(
+            final String groupName,
+            final String itemName,
+            final ResourceBundle resourceBundle ) {
         //return getButtonText( groupName, itemName, true, resourceBundle );
         return getButtonText( groupName, itemName, resourceBundle );
     }
 
     // Get the button text from the resource bundle, if applicable.
-    public static final String getButtonText(   final String groupName,
-                                                final String itemName,
-                                                //final boolean selected,
-                                                final ResourceBundle resourceBundle ) {
+    public static String getButtonText( final String groupName,
+                                        final String itemName,
+                                        //final boolean selected,
+                                        final ResourceBundle resourceBundle ) {
         // Get the button label from the resource bundle, if applicable.
         final String buttonLabel = getButtonLabel(  groupName,
                                                     itemName,
@@ -117,17 +120,18 @@ public class ButtonUtilities {
         return handleMnemonicMarker( buttonLabel, false );
     }
 
-    @SuppressWarnings("nls")
-    public static String getButtonToolTipText( final String groupName,
-                                               final String itemName,
-                                               final ResourceBundle resourceBundle ) {
+    public static String getButtonToolTipText(
+            final String groupName,
+            final String itemName,
+            final ResourceBundle resourceBundle ) {
         // There must always at least be a group name for each Button.
         if ( ( groupName == null ) || groupName.trim().isEmpty() ) {
             return null;
         }
 
         // Composite the button name from the group and item names.
-        final String buttonName = ( ( itemName == null ) || itemName.trim().isEmpty() )
+        final String buttonName = ( ( itemName == null )
+                || itemName.trim().isEmpty() )
             ? groupName
             : groupName + "." + itemName;
 
@@ -155,29 +159,29 @@ public class ButtonUtilities {
     // NOTE: This function should only be used for Latin alphanumeric
     //  characters. See the Mnemonics.java example for a more complex and
     //  foolproof methodology for finding the key code for a mnemonic.
-    public static final char getMnemonicChar( final String key ) {
+    public static char getMnemonicChar(final String key) {
         final int mnemonicMarkerIndex = getMnemonicMarkerIndex( key );
         final int mnemonicIndex = ( mnemonicMarkerIndex >= 0 )
             ? mnemonicMarkerIndex + 1
             : 0;
         //final char mnemonicLabel = key.toUpperCase( Locale.getDefault() )
-        return key.toUpperCase( new Locale( "en", "US" ) ) //$NON-NLS-1$ //$NON-NLS-2$
+        return key.toUpperCase( new Locale( "en", "US" ) )
                 .charAt( mnemonicIndex );
     }
 
     // NOTE: This always returns zero, due to a quirk in how programmatic key
-    //  code retrieval is not directly supported and thus results in an undefined
-    //  key code. The solution is found in Mnemonics.java from the Java Source
-    //  Code Warehouse project, using a properties file to map all the Latin
-    //  characters to their respective key codes.
-    public static final int getMnemonicKeyCode( final String key ) {
+    //  code retrieval is not directly supported and thus results in an
+    //  undefined key code. The solution is found in Mnemonics.java from the
+    //  Java Source Code Warehouse project, using a properties file to map all
+    //  the Latin characters to their respective key codes.
+    public static int getMnemonicKeyCode( final String key ) {
         final int mnemonicMarkerIndex = getMnemonicMarkerIndex( key );
         final int mnemonicIndex = ( mnemonicMarkerIndex >= 0 )
             ? mnemonicMarkerIndex + 1
             : 0;
         //final char mnemonicLabel = key.toUpperCase( Locale.getDefault() )
-        final char mnemonicLabel = key.toUpperCase( new Locale( "en", "US" ) ) //$NON-NLS-1$ //$NON-NLS-2$
-                .charAt( mnemonicIndex );
+        final char mnemonicLabel = key.toUpperCase( new Locale(
+                "en", "US" ) ) .charAt( mnemonicIndex );
         final KeyStroke mnemonicKeyStroke = KeyStroke
                 .getKeyStroke( mnemonicLabel );
         //final AWTKeyStroke mnemonicAWTKeyStroke = KeyStroke
@@ -192,7 +196,7 @@ public class ButtonUtilities {
      * @param actionLabel The action label that contains a Swing mnemonic marker
      * @return the index of the Swing mnemonic marker in the provided action label
      */
-    public static final int getMnemonicMarkerIndex( final String actionLabel ) {
+    public static int getMnemonicMarkerIndex( final String actionLabel ) {
         return actionLabel.indexOf( SWING_MNEMONIC_MARKER );
     }
 
@@ -207,8 +211,8 @@ public class ButtonUtilities {
      *                        if it should simply be stripped without replacement
      * @return the provided action label with its Swing mnemonic marker stripped
      */
-    public static final String handleMnemonicMarker( final String actionLabel,
-                                                     final boolean replaceMnemonic ) {
+    public static String handleMnemonicMarker( final String actionLabel,
+                                               final boolean replaceMnemonic ) {
         final int mnemonicMarkerIndex = getMnemonicMarkerIndex( actionLabel );
  
         // NOTE: If no mnemonic marker is found, "-1" is returned, which is then
@@ -220,7 +224,8 @@ public class ButtonUtilities {
         try {
             final String labelPreMnemonic = actionLabel
                     .substring( 0, mnemonicMarkerIndex );
-            final String labelPostMnemonic = actionLabel.substring( mnemonicIndex );
+            final String labelPostMnemonic = actionLabel.substring(
+                    mnemonicIndex );
 
             // Conditionally strip the Swing mnemonic marker from the label, or
             // replace the Swing mnemonic marker with the one for JavaFX.
@@ -238,9 +243,9 @@ public class ButtonUtilities {
         }
     }
 
-    public static final boolean setButtonIcons( final AbstractButton button,
-                                                final Icon enabledIcon,
-                                                final Icon disabledIcon ) {
+    public static boolean setButtonIcons( final AbstractButton button,
+                                          final Icon enabledIcon,
+                                          final Icon disabledIcon ) {
         // Fail-safe check to avoid unnecessary null pointer exceptions.
         if ( button == null ) {
             return false;
@@ -261,8 +266,8 @@ public class ButtonUtilities {
     }
 
     // Set button icons from a JAR-resident resource, if applicable.
-    public static final boolean setButtonIcons( final AbstractButton button,
-                                                final String iconFilename ) {
+    public static boolean setButtonIcons( final AbstractButton button,
+                                          final String iconFilename ) {
         // Get button icon from a JAR-resident resource, if applicable.
         final Icon icon = IconFactory.makeImageIcon( iconFilename );
 
@@ -271,24 +276,27 @@ public class ButtonUtilities {
     }
 
     // Set button icons from JAR-resident resources, if applicable.
-    public static final boolean setButtonIcons( final AbstractButton button,
-                                                final String enabledIconFilename,
-                                                final String disabledIconFilename ) {
+    public static boolean setButtonIcons( final AbstractButton button,
+                                          final String enabledIconFilename,
+                                          final String disabledIconFilename ) {
         // Get button icons from JAR-resident resources, if applicable.
-        final Icon enabledIcon = IconFactory.makeImageIcon( enabledIconFilename );
-        final Icon disabledIcon = IconFactory.makeImageIcon( disabledIconFilename );
+        final Icon enabledIcon = IconFactory.makeImageIcon(
+                enabledIconFilename );
+        final Icon disabledIcon = IconFactory.makeImageIcon(
+                disabledIconFilename );
 
         // Try to set the button icons, and report whether they are null.
         return setButtonIcons( button, enabledIcon, disabledIcon );
     }
 
-    // Set all of the resources for a button (e.g. icon, text, mnemonic).
-    public static final boolean setButtonResources( final AbstractButton button,
-                                                    final String groupName,
-                                                    final String itemName,
-                                                    final Icon icon,
-                                                    final ResourceBundle resourceBundle,
-                                                    final boolean useMnemonic ) {
+    // Set all the resources for a button (e.g. icon, text, mnemonic).
+    public static boolean setButtonResources(
+            final AbstractButton button,
+            final String groupName,
+            final String itemName,
+            final Icon icon,
+            final ResourceBundle resourceBundle,
+            final boolean useMnemonic ) {
         // Set the button icons to the supplied enabled icon reference.
         setButtonIcons( button, icon, icon );
 
@@ -301,53 +309,55 @@ public class ButtonUtilities {
                                 useMnemonic );
     }
 
-    // Set all of the resources for a button (e.g. icon, text, mnemonic).
-    public static final boolean setButtonResources( final AbstractButton button,
-                                                    final String groupName,
-                                                    final String itemName,
-                                                    final String iconFilename,
-                                                    final ResourceBundle resourceBundle,
-                                                    final boolean useMnemonic ) {
+    // Set all the resources for a button (e.g. icon, text, mnemonic).
+    public static boolean setButtonResources(
+            final AbstractButton button,
+            final String groupName,
+            final String itemName,
+            final String iconFilename,
+            final ResourceBundle resourceBundle,
+            final boolean useMnemonic ) {
         // Set the button icon from a JAR-resident resource, if applicable.
         setButtonIcons( button, iconFilename );
 
         // Set the button text and mnemonic from a resource bundle, if
         // applicable.
-        return setButtonText(   button,
-                                groupName,
-                                itemName,
-                                resourceBundle,
-                                useMnemonic );
-
+        return setButtonText(
+                button,
+                groupName,
+                itemName,
+                resourceBundle,
+                useMnemonic );
     }
 
-    // Set all of the resources for a button (e.g. icon, text, mnemonic).
-    public static final boolean setButtonResources( final AbstractButton button,
-                                                    final String groupName,
-                                                    final String itemName,
-                                                    final String enabledIconFilename,
-                                                    final String disabledIconFilename,
-                                                    final ResourceBundle resourceBundle,
-                                                    final boolean useMnemonic ) {
+    // Set all the resources for a button (e.g. icon, text, mnemonic).
+    public static boolean setButtonResources(
+            final AbstractButton button,
+            final String groupName,
+            final String itemName,
+            final String enabledIconFilename,
+            final String disabledIconFilename,
+            final ResourceBundle resourceBundle,
+            final boolean useMnemonic ) {
         // Set the button icons from JAR-resident resources, if applicable.
         setButtonIcons( button, enabledIconFilename, disabledIconFilename );
 
         // Set the button text and mnemonic from a resource bundle, if
         // applicable.
-        return setButtonText(   button,
-                                groupName,
-                                itemName,
-                                resourceBundle,
-                                useMnemonic );
-
+        return setButtonText(
+                button,
+                groupName,
+                itemName,
+                resourceBundle,
+                useMnemonic );
     }
 
     // Set button text and mnemonic from a resource bundle, if applicable.
-    public static final boolean setButtonText(  final AbstractButton button,
-                                                final String groupName,
-                                                final String itemName,
-                                                final ResourceBundle resourceBundle,
-                                                final boolean useMnemonic ) {
+    public static boolean setButtonText( final AbstractButton button,
+                                         final String groupName,
+                                         final String itemName,
+                                         final ResourceBundle resourceBundle,
+                                         final boolean useMnemonic ) {
         // Fail-safe check to avoid unnecessary null pointer exceptions.
         if ( button == null ) {
             return false;
@@ -361,7 +371,8 @@ public class ButtonUtilities {
         }
 
         // Strip the mnemonic marker from the button label.
-        final String buttonText = handleMnemonicMarker( buttonLabel, false );
+        final String buttonText = handleMnemonicMarker(
+                buttonLabel, false );
         if ( ( buttonText == null ) || buttonText.trim().isEmpty() ) {
             return false;
         }
