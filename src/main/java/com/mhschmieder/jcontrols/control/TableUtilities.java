@@ -41,7 +41,7 @@ import javax.swing.table.JTableHeader;
 import java.awt.Component;
 import java.awt.Dimension;
 
-public class TableUtilities {
+public final class TableUtilities {
 
     /**
      * The default constructor is disabled, as this is a static utilities class
@@ -86,7 +86,7 @@ public class TableUtilities {
      *
      * @since 1.0
      */
-   public static JScrollPane makeTableScrollPane(
+    public static JScrollPane makeTableScrollPane(
             final JTable table,
             final JPanel scrollableTablePanel,
             final int tableWidthPixels,
