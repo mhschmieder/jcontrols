@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -64,7 +64,7 @@ import java.util.ResourceBundle;
  *
  * @author Mark Schmieder
  */
-public class XToggleButton extends JToggleButton {
+public class JxToggleButton extends JToggleButton {
    /**
     *
     */
@@ -92,7 +92,7 @@ public class XToggleButton extends JToggleButton {
    private final int           _heightFactor;
 
    // This is the constructor for cases where the text isn't state dependent.
-   public XToggleButton( final ClientProperties clientProperties,
+   public JxToggleButton(final ClientProperties clientProperties,
                          final String text,
                          final String toolTipText,
                          final String iconFilename ) {
@@ -107,7 +107,7 @@ public class XToggleButton extends JToggleButton {
                false );
    }
 
-   public XToggleButton( final ClientProperties clientProperties,
+   public JxToggleButton(final ClientProperties clientProperties,
                          final String bundleName,
                          final String groupName,
                          final String itemName,
@@ -136,7 +136,7 @@ public class XToggleButton extends JToggleButton {
        }
    }
 
-   public XToggleButton( final ClientProperties clientProperties,
+   public JxToggleButton(final ClientProperties clientProperties,
                          final String bundleName,
                          final String groupName,
                          final String itemName,
@@ -167,7 +167,7 @@ public class XToggleButton extends JToggleButton {
 
    // This is the constructor for cases where the text and background color are
    // state dependent.
-   public XToggleButton( final ClientProperties clientProperties,
+   public JxToggleButton(final ClientProperties clientProperties,
                          final String selectedText,
                          final String deselectedText,
                          final String toolTipText,
@@ -201,7 +201,7 @@ public class XToggleButton extends JToggleButton {
    }
 
    // This is the constructor for cases where the text is state dependent.
-   public XToggleButton( final ClientProperties clientProperties,
+   public JxToggleButton(final ClientProperties clientProperties,
                          final String selectedText,
                          final String deselectedText,
                          final String toolTipText,

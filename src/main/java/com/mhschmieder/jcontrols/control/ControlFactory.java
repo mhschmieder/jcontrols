@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -73,9 +73,9 @@ public final class ControlFactory {
      *
      * @version 1.0
      */
-    public static XSlider makePercentSlider(final NumberEditor pairedNumberEditor,
-                                            final int sliderOrientation,
-                                            final int initialPercentile ) {
+    public static JxSlider makePercentSlider(final NumberEditor pairedNumberEditor,
+                                             final int sliderOrientation,
+                                             final int initialPercentile ) {
         return makePercentSlider( pairedNumberEditor,
                                   sliderOrientation,
                                   MINIMUM_PERCENTILE_DEFAULT,
@@ -101,12 +101,12 @@ public final class ControlFactory {
      *
      * @version 1.0
      */
-    public static XSlider makePercentSlider( final NumberEditor pairedNumberEditor,
+    public static JxSlider makePercentSlider(final NumberEditor pairedNumberEditor,
                                              final int sliderOrientation,
                                              final int minimumPercentile,
                                              final int maximumPercentile,
                                              final int initialPercentile ) {
-        return new XSlider( pairedNumberEditor,
+        return new JxSlider( pairedNumberEditor,
                             sliderOrientation,
                             minimumPercentile,
                             maximumPercentile,

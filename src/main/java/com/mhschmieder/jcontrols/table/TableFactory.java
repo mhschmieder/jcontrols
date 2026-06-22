@@ -21,16 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
-import com.mhschmieder.jcontrols.control.XTable;
+import com.mhschmieder.jcontrols.control.JxTable;
 
 import javax.swing.ListSelectionModel;
 import javax.swing.table.TableCellEditor;
@@ -40,7 +40,7 @@ import java.awt.Color;
 
 /**
  * {@code TableFactory} is a factory class for making customized Swing based
- * tables, without having to unnecessarily derive subclasses from {@link XTable}
+ * tables, without having to unnecessarily derive subclasses from {@link JxTable}
  * that add no data or extra functionality but simply parameterize to a purpose.
  *
  * @version 1.0
@@ -57,7 +57,7 @@ public final class TableFactory {
     //////////////// Column Header Table pseudo-constructors /////////////////
 
     /**
-     * Returns an {@link XTable} that acts as a one-row table without a regular
+     * Returns an {@link JxTable} that acts as a one-row table without a regular
      * table header, where the one and only data row is actually the column
      * names. This allows for stacking of different tables as though they are
      * all part of an Excel spreadsheet that supports heterogeneous data.
@@ -66,18 +66,18 @@ public final class TableFactory {
      *            The names of the table columns
      * @param headerRow
      *            The header row, which is comprised of the column names
-     * @return An {@link XTable} that acts as a single Header Row
+     * @return An {@link JxTable} that acts as a single Header Row
      *
      * @since 1.0
      */
-    public static XTable makeColumnHeaderTable( final Object[] columnNames,
+    public static JxTable makeColumnHeaderTable(final Object[] columnNames,
                                                 final Object[] headerRow ) {
-        final XTable table = makeColumnHeaderTable( columnNames, headerRow, 12f );
+        final JxTable table = makeColumnHeaderTable( columnNames, headerRow, 12f );
         return table;
     }
 
     /**
-     * Returns an {@link XTable} that acts as a one-row table without a regular
+     * Returns an {@link JxTable} that acts as a one-row table without a regular
      * table header, where the one and only data row is actually the column
      * names. This allows for stacking of different tables as though they are
      * all part of an Excel spreadsheet that supports heterogeneous data.
@@ -88,14 +88,14 @@ public final class TableFactory {
      *            The header row, which is comprised of the column names
      * @param fontSize
      *            The preferred size of the fonts to be used by the table cells
-     * @return An {@link XTable} that acts as a single Header Row
+     * @return An {@link JxTable} that acts as a single Header Row
      *
      * @since 1.0
      */
-    public static XTable makeColumnHeaderTable( final Object[] columnNames,
+    public static JxTable makeColumnHeaderTable(final Object[] columnNames,
                                                 final Object[] headerRow,
                                                 final float fontSize ) {
-        final XTable table =
+        final JxTable table =
                            makeColumnHeaderTable( columnNames,
                                                   headerRow,
                                                   fontSize,
@@ -105,7 +105,7 @@ public final class TableFactory {
     }
 
     /**
-     * Returns an {@link XTable} that acts as a one-row table without a regular
+     * Returns an {@link JxTable} that acts as a one-row table without a regular
      * table header, where the one and only data row is actually the column
      * names. This allows for stacking of different tables as though they are
      * all part of an Excel spreadsheet that supports heterogeneous data.
@@ -120,11 +120,11 @@ public final class TableFactory {
      *            The {@link Color} to use for header cell background
      * @param cellForegroundColor
      *            The {@link Color} to use for header cell foreground
-     * @return An {@link XTable} that acts as a single Header Row
+     * @return An {@link JxTable} that acts as a single Header Row
      *
      * @since 1.0
      */
-    public static XTable makeColumnHeaderTable( final Object[] columnNames,
+    public static JxTable makeColumnHeaderTable(final Object[] columnNames,
                                                 final Object[] headerRow,
                                                 final float fontSize,
                                                 final Color cellBackgroundColor,
@@ -135,7 +135,7 @@ public final class TableFactory {
 
         // Set up the Column Header Table to disallow cell editing as well as
         // row, column, and cell based selection.
-        final XTable table = new XTable( tableModel,
+        final JxTable table = new JxTable( tableModel,
                                          null,
                                          null,
                                          ListSelectionModel.SINGLE_SELECTION,
@@ -144,7 +144,7 @@ public final class TableFactory {
                                          false );
 
         // Set a Text Field Cell Editor to display the header cells as labels.
-        final TableCellEditor cellEditor = new TextFieldCellEditor( false, false, true );
+        final TableCellEditor cellEditor = new JxTextFieldCellEditor( false, false, true );
         table.setCellEditor( cellEditor );
 
         // Set a custom Cell Renderer so we can have colored headers (the

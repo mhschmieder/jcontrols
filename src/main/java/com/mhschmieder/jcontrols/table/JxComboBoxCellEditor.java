@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -36,7 +36,7 @@ import java.awt.Component;
 import java.util.List;
 
 /**
- * {@code ComboBoxCellEditor} is a specialization of {@link XCellEditor} to
+ * {@code ComboBoxCellEditor} is a specialization of {@link JxCellEditor} to
  * customize how Combo Boxes are handled in the context of table cells.
  * <p>
  * The Combo Box is user configurable as dynamic, which means that anything the
@@ -56,7 +56,7 @@ import java.util.List;
  *
  * @author Mark Schmieder
  */
-public class ComboBoxCellEditor extends XCellEditor {
+public class JxComboBoxCellEditor extends JxCellEditor {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -82,11 +82,11 @@ public class ComboBoxCellEditor extends XCellEditor {
      *
      * @version 1.0
      */
-    public ComboBoxCellEditor( final boolean isRowHeader,
-                               final boolean isEnabled,
-                               final boolean isVisible,
-                               final boolean editable,
-                               final int maximumRowCount ) {
+    public JxComboBoxCellEditor(final boolean isRowHeader,
+                                final boolean isEnabled,
+                                final boolean isVisible,
+                                final boolean editable,
+                                final int maximumRowCount ) {
         this( new JComboBox<>(), isRowHeader, isEnabled, isVisible, editable, maximumRowCount );
     }
 
@@ -112,12 +112,12 @@ public class ComboBoxCellEditor extends XCellEditor {
      *
      * @version 1.0
      */
-    public ComboBoxCellEditor( final JComboBox< String > comboBox,
-                               final boolean isRowHeader,
-                               final boolean isEnabled,
-                               final boolean isVisible,
-                               final boolean editable,
-                               final int maximumRowCount ) {
+    public JxComboBoxCellEditor(final JComboBox< String > comboBox,
+                                final boolean isRowHeader,
+                                final boolean isEnabled,
+                                final boolean isVisible,
+                                final boolean editable,
+                                final int maximumRowCount ) {
         // Always call the superclass constructor first!
         super( comboBox, isRowHeader, isEnabled, isVisible );
 

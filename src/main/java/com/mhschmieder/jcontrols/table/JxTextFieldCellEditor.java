@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -38,14 +38,14 @@ import javax.swing.border.LineBorder;
 import java.awt.Component;
 
 /**
- * {@code TextFieldCellEditor} is a specialization of {@link XCellEditor} to
+ * {@code TextFieldCellEditor} is a specialization of {@link JxCellEditor} to
  * customize how Text Fields are handled in the context of table cells.
  *
  * @version 1.0
  *
  * @author Mark Schmieder
  */
-public class TextFieldCellEditor extends XCellEditor {
+public class JxTextFieldCellEditor extends JxCellEditor {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -67,9 +67,9 @@ public class TextFieldCellEditor extends XCellEditor {
      *
      * @version 1.0
      */
-    public TextFieldCellEditor( final boolean isRowHeader,
-                                final boolean isEnabled,
-                                final boolean isVisible ) {
+    public JxTextFieldCellEditor(final boolean isRowHeader,
+                                 final boolean isEnabled,
+                                 final boolean isVisible ) {
         this( new JTextField(), isRowHeader, isEnabled, isVisible );
     }
 
@@ -91,10 +91,10 @@ public class TextFieldCellEditor extends XCellEditor {
      *
      * @version 1.0
      */
-    public TextFieldCellEditor( final JTextField textField,
-                                final boolean isRowHeader,
-                                final boolean isEnabled,
-                                final boolean isVisible ) {
+    public JxTextFieldCellEditor(final JTextField textField,
+                                 final boolean isRowHeader,
+                                 final boolean isEnabled,
+                                 final boolean isVisible ) {
         // Always call the superclass constructor first!
         super( textField, isRowHeader, isEnabled, isVisible );
 

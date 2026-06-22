@@ -21,100 +21,104 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
+import javax.swing.JCheckBox;
 import javax.swing.JTable;
 import java.awt.Component;
 
 /**
- * {@code BlankingCellEditor} is a further specialization of
- * {@link TextFieldCellEditor} to handle cells that need to be blank due to he
- * irrelevance of data in that cell position.
- * <p>
- * An example would be a table that has alternating rows of different data
- * types, where a customized rendering of cells not in use for each row is more
- * intuitive to the user than allowing a blank white cell that might be seen as
- * a run-time error or missing data.
+ * {@code CheckBoxCellEditor} is a specialization of {@link JxCellEditor} to
+ * customize how Check Boxes are handled in the context of table cells.
  *
  * @version 1.0
  *
  * @author Mark Schmieder
  */
-public class BlankingCellEditor extends TextFieldCellEditor {
+public class JxCheckBoxCellEditor extends JxCellEditor {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
-    private static final long serialVersionUID = -2613702930890626349L;
-
-    /**
-     * The text to use to indicate that a table cell is legitimately blank.
-     */
-    private final String      blankingText;
+    private static final long serialVersionUID = 776166157143981981L;
 
     //////////////////////////// Constructors ////////////////////////////////
 
     /**
-     * Constructs a Cell Editor that customizes blank cells to be indicated in
-     * some special way, such as with a special background color and a symbol
-     * for data not applicable (often this is the minus sign).
+     * Constructs a Cell Editor that customizes how Text Fields are handled.
+     * <p>
+     * This is the preferred constructor in most cases, for regular text.
      *
      * @param isRowHeader
      *            {@code true} if this cell should be used as a row header
+     * @param isEnabled
+     *            {@code true} if this cell should be enabled by default
+     * @param isVisible
+     *            {@code true} if this cell should be visible by default
      *
      * @version 1.0
      */
-    public BlankingCellEditor( final boolean isRowHeader ) {
-        this( isRowHeader, TableConstants.DEFAULT_BLANKING_TEXT );
+    public JxCheckBoxCellEditor(final boolean isRowHeader,
+                                final boolean isEnabled,
+                                final boolean isVisible ) {
+        this( new JCheckBox(), isRowHeader, isEnabled, isVisible );
     }
 
     /**
-     * Constructs a Cell Editor that customizes blank cells to be indicated in
-     * some special way, such as with a special background color and a symbol
-     * for data not applicable (often this is the minus sign).
+     * Constructs a Cell Editor that customizes how Text Fields are handled.
+     * <p>
+     * This special constructor is provided for cases where a subclass of
+     * {@link JCheckBox} may be needed; mostly because those classes have unique
+     * constructors.
      *
+     * @param checkBox
+     *            The Check Box (or derived class) to use as the cell editor
      * @param isRowHeader
      *            {@code true} if this cell should be used as a row header
-     * @param blankingSymbol
-     *            The text to use to indicate that a table cell is legitimately
-     *            blank
+     * @param isEnabled
+     *            {@code true} if this cell should be enabled by default
+     * @param isVisible
+     *            {@code true} if this cell should be visible by default
      *
      * @version 1.0
      */
-    public BlankingCellEditor( final boolean isRowHeader, final String blankingSymbol ) {
+    public JxCheckBoxCellEditor(final JCheckBox checkBox,
+                                final boolean isRowHeader,
+                                final boolean isEnabled,
+                                final boolean isVisible ) {
         // Always call the superclass constructor first!
-        super( isRowHeader, false, false );
+        super( checkBox, isRowHeader, isEnabled, isVisible );
 
-        blankingText = blankingSymbol;
-
-        // Don't allow blanking text fields to participate in focus (i.e. tab)
-        // traversal.
-        editorComponent.setFocusable( false );
+        // Allow Check Boxes to participate in focus (i.e. tab) traversal.
+        editorComponent.setFocusable( true );
     }
 
     ////////////////// DefaultCellEditor method overrides ////////////////////
 
     /**
-     * Returns the current cell editor value, which in this case is always the
-     * special assigned blanking character.
+     * Returns the current Check Box status if enabled; otherwise {@code null}.
      * <p>
-     * This method is called when editing is completed. It must return the new
-     * value to be stored in the cell, which is always a blanking string.
+     * This method checks to see whether the Check Box is enabled, and if so, it
+     * returns its current selection status. Otherwise it returns {@code null}
+     * so that renderers and other downstream processing are cued to blank the
+     * cell rather than present a grayed out value that has no meaning and could
+     * confuse users; it is generally better to blank out the cell.
      *
-     * @return The special blanking character in all cases, regardless of other
-     *         factors
+     * @return The current Check Box value if enabled; otherwise {@code null}
      *
      * @version 1.0
      */
     @Override
     public Object getCellEditorValue() {
-        return blankingText;
+        return editorComponent.isEnabled()
+            ? new Boolean( ( ( JCheckBox ) editorComponent ).isSelected() )
+            : null;
     }
 
     /**
@@ -156,10 +160,33 @@ public class BlankingCellEditor extends TextFieldCellEditor {
         final boolean applyRowHeaderStyle = cellIsRowHeader
                 && ( column == TableConstants.COLUMN_ROW_HEADER );
 
-        final Object newValue = applyRowHeaderStyle ? value : blankingText;
+        if ( applyRowHeaderStyle ) {
+            // Disable the Check Box but make it visible.
+            editorComponent.setEnabled( false );
+            editorComponent.setVisible( true );
+        }
+        else {
+            // Set the model component to match the edited state.
+            if ( value instanceof Boolean ) {
+                delegate.setValue( value );
+
+                // Conditionally enable the Check Box and make it visible.
+                //
+                // In cases where the Check Box is enabled without making it
+                // visible, the custom renderer takes over but the cell can
+                // still receive edits.
+                editorComponent.setEnabled( defaultEnabled );
+                editorComponent.setVisible( defaultVisible );
+            }
+            else {
+                // Disable the Check Box but conditionally make it visible.
+                editorComponent.setEnabled( false );
+                editorComponent.setVisible( defaultVisible );
+            }
+        }
 
         final Component component = super.getTableCellEditorComponent( table,
-                                                                       newValue,
+                                                                       value,
                                                                        isSelected,
                                                                        row,
                                                                        column );

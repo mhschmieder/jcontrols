@@ -29,10 +29,11 @@
  * Project: https://github.com/mhschmieder/jcontrols
  */
 /**
- * This package contains the jcontrols Library's custom event facilities.
+ * This package contains the jcontrols Library's GUI classes and utilities that
+ * aren't dependent on Swing or AWT sub-packages; that is, relate to Components.
  *
  * @version 1.0
  *
  * @author Mark Schmieder
  */
-package com.mhschmieder.jcontrols.event;
+package com.mhschmieder.jcontrols.component;

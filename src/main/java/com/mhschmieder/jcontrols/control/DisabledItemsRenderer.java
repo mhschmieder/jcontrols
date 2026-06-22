@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -54,9 +54,9 @@ public class DisabledItemsRenderer extends BasicComboBoxRenderer {
     private static final long serialVersionUID = -7037535725607183944L;
 
     /**
-     * The {@link XComboBox} that is using this list cell renderer.
+     * The {@link JxComboBox} that is using this list cell renderer.
      */
-    private final XComboBox   comboBox;
+    private final JxComboBox comboBox;
 
     /**
      * The background color to use for list items that are disabled.
@@ -71,12 +71,12 @@ public class DisabledItemsRenderer extends BasicComboBoxRenderer {
      * currently disabled.
      *
      * @param comboBoxOwner
-     *            The {@link XComboBox} that is using this list cell renderer
+     *            The {@link JxComboBox} that is using this list cell renderer
      *
      * @version 1.0
      */
     @SuppressWarnings("nls")
-    public DisabledItemsRenderer( final XComboBox comboBoxOwner ) {
+    public DisabledItemsRenderer( final JxComboBox comboBoxOwner ) {
         // Always call the superclass constructor first!
         super();
 

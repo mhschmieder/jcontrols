@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -68,7 +68,7 @@ import java.util.EventObject;
  *
  * @author Mark Schmieder
  */
-public class XTable extends JTable implements ForegroundManager {
+public class JxTable extends JTable implements ForegroundManager {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -100,7 +100,7 @@ public class XTable extends JTable implements ForegroundManager {
      *
      * @since 1.0
      */
-    public XTable( final TableModel tableModel ) {
+    public JxTable(final TableModel tableModel ) {
         this( tableModel, true, true );
     }
 
@@ -121,7 +121,7 @@ public class XTable extends JTable implements ForegroundManager {
      *
      * @since 1.0
      */
-    public XTable( final TableModel tableModel,
+    public JxTable(final TableModel tableModel,
                    final boolean showHorizontalGridLines,
                    final boolean showVerticalGridLines ) {
         this( tableModel,
@@ -148,7 +148,7 @@ public class XTable extends JTable implements ForegroundManager {
      *
      * @since 1.0
      */
-    public XTable( final TableModel tableModel, final Boolean[] columnAutoEdit ) {
+    public JxTable(final TableModel tableModel, final Boolean[] columnAutoEdit ) {
         this( tableModel,
               columnAutoEdit,
               null,
@@ -183,7 +183,7 @@ public class XTable extends JTable implements ForegroundManager {
      *
      * @since 1.0
      */
-    public XTable( final TableModel tableModel,
+    public JxTable(final TableModel tableModel,
                    final Boolean[] columnAutoEdit,
                    final Boolean[] columnAutoSelect,
                    final int selectionMode,
@@ -236,7 +236,7 @@ public class XTable extends JTable implements ForegroundManager {
      *
      * @since 1.0
      */
-    public XTable( final TableModel tableModel,
+    public JxTable(final TableModel tableModel,
                    final Boolean[] columnAutoEdit,
                    final Boolean[] columnAutoSelect,
                    final int columnAutoResizeMode,

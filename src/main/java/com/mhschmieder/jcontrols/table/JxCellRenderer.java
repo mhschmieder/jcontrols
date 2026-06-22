@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -49,7 +49,7 @@ import java.awt.Font;
  *
  * @author Mark Schmieder
  */
-public class XCellRenderer extends DefaultTableCellRenderer {
+public class JxCellRenderer extends DefaultTableCellRenderer {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -93,7 +93,7 @@ public class XCellRenderer extends DefaultTableCellRenderer {
      *
      * @version 1.0
      */
-    public XCellRenderer( final boolean setAsRowHeader,
+    public JxCellRenderer(final boolean setAsRowHeader,
                           final int rowHeaderCellAlignment,
                           final int cellAlignment,
                           final float fontSize ) {

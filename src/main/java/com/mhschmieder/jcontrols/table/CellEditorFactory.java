@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -52,23 +52,23 @@ public final class CellEditorFactory {
     private CellEditorFactory() {}
 
     /**
-     * Returns a {@link BlankingCellEditor} that is stylized for blanking.
+     * Returns a {@link JxBlankingCellEditor} that is stylized for blanking.
      *
-     * @return A {@link BlankingCellEditor} that is stylized for blanking
+     * @return A {@link JxBlankingCellEditor} that is stylized for blanking
      */
     public static DefaultCellEditor makeBlankingCellEditor() {
-        return new BlankingCellEditor( false );
+        return new JxBlankingCellEditor( false );
     }
 
     /**
-     * Returns a {@link TextFieldCellEditor} that is stylized either for
+     * Returns a {@link JxTextFieldCellEditor} that is stylized either for
      * read-only labels or for editable labels (if {@code defaultEnabled} is
      * {@code true}).
      *
      * @param defaultEnabled
-     *            If {@code true}, make an editable {@link TextFieldCellEditor};
-     *            otherwise make a read-only {@link TextFieldCellEditor}
-     * @return A {@link TextFieldCellEditor} that is stylized either for
+     *            If {@code true}, make an editable {@link JxTextFieldCellEditor};
+     *            otherwise make a read-only {@link JxTextFieldCellEditor}
+     * @return A {@link JxTextFieldCellEditor} that is stylized either for
      *         read-only labels or for editable labels
      */
     public static DefaultCellEditor makeLabelCellEditor( final boolean defaultEnabled ) {
@@ -76,34 +76,34 @@ public final class CellEditorFactory {
     }
 
     /**
-     * Returns a {@link TextFieldCellEditor} that is stylized for read-only
+     * Returns a {@link JxTextFieldCellEditor} that is stylized for read-only
      * labels.
      *
-     * @return A {@link TextFieldCellEditor} that is stylized for read-only
+     * @return A {@link JxTextFieldCellEditor} that is stylized for read-only
      *         labels
      */
     public static DefaultCellEditor makeStaticLabelCellEditor() {
-        return new TextFieldCellEditor( false, // row headers not in use
+        return new JxTextFieldCellEditor( false, // row headers not in use
                                         false, // disabled for editing
                                         true ); // visible by default
 
     }
 
     /**
-     * Returns a {@link TextFieldCellEditor} that is stylized for editable
+     * Returns a {@link JxTextFieldCellEditor} that is stylized for editable
      * labels.
      *
-     * @return A {@link TextFieldCellEditor} that is stylized for editable
+     * @return A {@link JxTextFieldCellEditor} that is stylized for editable
      *         labels
      */
     public static DefaultCellEditor makeDynamicLabelCellEditor() {
-        return new TextFieldCellEditor( false, // row header not in use
+        return new JxTextFieldCellEditor( false, // row header not in use
                                         true, // enabled for editing
                                         true ); // visible by default
     }
 
     /**
-     * Returns a {@link TextFieldCellEditor} that uses a {@link NumberEditor}
+     * Returns a {@link JxTextFieldCellEditor} that uses a {@link NumberEditor}
      * for the cell editing and is visible by default.
      *
      * @param minimumFractionDigitsFormat
@@ -118,15 +118,15 @@ public final class CellEditorFactory {
      *            {@code true} if this cell should be used as a row header
      * @param isEnabled
      *            {@code true} if this cell should be enabled by default
-     * @return A {@link TextFieldCellEditor} that uses a
+     * @return A {@link JxTextFieldCellEditor} that uses a
      *         {@link NumberEditor} for the cell editing
      */
-    public static TextFieldCellEditor makeNumberCellEditor( final int minimumFractionDigitsFormat,
-                                                            final int maximumFractionDigitsFormat,
-                                                            final int minimumFractionDigitsParse,
-                                                            final int maximumFractionDigitsParse,
-                                                            final boolean isRowHeader,
-                                                            final boolean isEnabled ) {
+    public static JxTextFieldCellEditor makeNumberCellEditor(final int minimumFractionDigitsFormat,
+                                                             final int maximumFractionDigitsFormat,
+                                                             final int minimumFractionDigitsParse,
+                                                             final int maximumFractionDigitsParse,
+                                                             final boolean isRowHeader,
+                                                             final boolean isEnabled ) {
         final NumberEditor textField = new NumberEditor( minimumFractionDigitsFormat,
                                                          maximumFractionDigitsFormat,
                                                          minimumFractionDigitsParse,
@@ -134,43 +134,43 @@ public final class CellEditorFactory {
 
         // Return a Text Field Cell Editor instance that uses a Number Editor
         // for the cell editing and is visible by default.
-        return new TextFieldCellEditor( textField, isRowHeader, isEnabled, true );
+        return new JxTextFieldCellEditor( textField, isRowHeader, isEnabled, true );
     }
 
     /**
-     * Returns a {@link CheckBoxCellEditor} that behaves like a regular Action
+     * Returns a {@link JxCheckBoxCellEditor} that behaves like a regular Action
      * Button.
      *
-     * @return A {@link CheckBoxCellEditor} that behaves like a regular Action
+     * @return A {@link JxCheckBoxCellEditor} that behaves like a regular Action
      *         Button
      */
-    public static CheckBoxCellEditor makeActionButtonCellEditor() {
-        return new CheckBoxCellEditor( false, // row header not in use
+    public static JxCheckBoxCellEditor makeActionButtonCellEditor() {
+        return new JxCheckBoxCellEditor( false, // row header not in use
                                        true, // enabled for editing
                                        true ); // visible by default
 
     }
 
     /**
-     * Returns a {@link CheckBoxCellEditor} that behaves like a Toggle Button.
+     * Returns a {@link JxCheckBoxCellEditor} that behaves like a Toggle Button.
      *
-     * @return A {@link CheckBoxCellEditor} that behaves like a Toggle Button
+     * @return A {@link JxCheckBoxCellEditor} that behaves like a Toggle Button
      */
-    public static CheckBoxCellEditor makeToggleButtonCellEditor() {
-        return new CheckBoxCellEditor( false, // row header not in use
+    public static JxCheckBoxCellEditor makeToggleButtonCellEditor() {
+        return new JxCheckBoxCellEditor( false, // row header not in use
                                        true, // enabled for editing
                                        true ); // visible by default
     }
 
     /**
-     * Returns a {@link ComboBoxCellEditor} that is stylized either for
+     * Returns a {@link JxComboBoxCellEditor} that is stylized either for
      * read-only lists or for editable lists (if {@code defaultEnabled} is
      * {@code true}).
      *
      * @param defaultEnabled
-     *            If {@code true}, make an editable {@link ComboBoxCellEditor};
-     *            otherwise make a read-only {@link ComboBoxCellEditor}
-     * @return A {@link ComboBoxCellEditor} that is stylized either for
+     *            If {@code true}, make an editable {@link JxComboBoxCellEditor};
+     *            otherwise make a read-only {@link JxComboBoxCellEditor}
+     * @return A {@link JxComboBoxCellEditor} that is stylized either for
      *         read-only lists or for editable lists
      */
     public static DefaultCellEditor makeListCellEditor( final boolean defaultEnabled ) {
@@ -178,13 +178,13 @@ public final class CellEditorFactory {
     }
 
     /**
-     * Returns a {@link ComboBoxCellEditor} that is stylized either read-only
+     * Returns a {@link JxComboBoxCellEditor} that is stylized either read-only
      * lists.
      *
-     * @return A {@link ComboBoxCellEditor} that is stylized for read-only lists
+     * @return A {@link JxComboBoxCellEditor} that is stylized for read-only lists
      */
-    public static ComboBoxCellEditor makeStaticListCellEditor() {
-        return new ComboBoxCellEditor( false, // row header not in use
+    public static JxComboBoxCellEditor makeStaticListCellEditor() {
+        return new JxComboBoxCellEditor( false, // row header not in use
                                        true, // enabled for editing
                                        true, // visible by default
                                        false, // not editable by default
@@ -192,12 +192,12 @@ public final class CellEditorFactory {
     }
 
     /**
-     * Returns a {@link ComboBoxCellEditor} that is stylized for editable lists.
+     * Returns a {@link JxComboBoxCellEditor} that is stylized for editable lists.
      *
-     * @return A {@link ComboBoxCellEditor} that is stylized for editable lists
+     * @return A {@link JxComboBoxCellEditor} that is stylized for editable lists
      */
-    public static ComboBoxCellEditor makeDynamicListCellEditor() {
-        return new ComboBoxCellEditor( false, // row header not in use
+    public static JxComboBoxCellEditor makeDynamicListCellEditor() {
+        return new JxComboBoxCellEditor( false, // row header not in use
                                        true, // enabled for editing
                                        true, // visible by default
                                        true, // editable by default

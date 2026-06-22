@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -37,7 +37,7 @@ import com.mhschmieder.jcommons.util.SystemType;
 import javax.swing.JMenu;
 import java.util.ResourceBundle;
 
-public class XMenu extends JMenu {
+public class JxMenu extends JMenu {
     /**
     *
     */
@@ -47,10 +47,10 @@ public class XMenu extends JMenu {
    protected ClientProperties    _clientProperties;
 
    // Default constructor
-   protected XMenu( final ClientProperties clientProperties,
-                       final String bundleName,
-                       final String menuName,
-                       final String iconFilename ) {
+   protected JxMenu(final ClientProperties clientProperties,
+                    final String bundleName,
+                    final String menuName,
+                    final String iconFilename ) {
        // Always call the superclass constructor first!
        super();
 
@@ -65,11 +65,11 @@ public class XMenu extends JMenu {
    }
 
    // Fully qualified constructor
-   public XMenu(    final ClientProperties clientProperties,
-                       final String bundleName,
-                       final String menuName,
-                       final String enabledIconFilename,
-                       final String disabledIconFilename ) {
+   public JxMenu(final ClientProperties clientProperties,
+                 final String bundleName,
+                 final String menuName,
+                 final String enabledIconFilename,
+                 final String disabledIconFilename ) {
        // Always call the superclass constructor first!
        super();
 

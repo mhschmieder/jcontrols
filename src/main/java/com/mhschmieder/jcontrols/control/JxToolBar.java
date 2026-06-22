@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -37,7 +37,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class XToolBar extends JToolBar {
+public class JxToolBar extends JToolBar {
     /**
      * 
      */
@@ -50,7 +50,7 @@ public class XToolBar extends JToolBar {
     protected ClientProperties    _clientProperties;
 
     // Default constructor
-    protected XToolBar( final ClientProperties clientProperties ) {
+    protected JxToolBar(final ClientProperties clientProperties ) {
         // Always call the superclass constructor first!
         super();
 

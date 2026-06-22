@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -39,7 +39,7 @@ import java.util.Locale;
 
 /**
  * {@code NumberCellRenderer} is a further specialization of
- * {@link TextFieldCellRenderer} to deal with the specifics of numeric text
+ * {@link JxTextFieldCellRenderer} to deal with the specifics of numeric text
  * strings. This includes model/view syncing issues with the rendering of
  * positive numbers that may have been typed with the plus sign by the user.
  *
@@ -47,7 +47,7 @@ import java.util.Locale;
  *
  * @author Mark Schmieder
  */
-public class NumberCellRenderer extends TextFieldCellRenderer {
+public class JxNumberCellRenderer extends JxTextFieldCellRenderer {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -132,10 +132,10 @@ public class NumberCellRenderer extends TextFieldCellRenderer {
      *
      * @version 1.0
      */
-    public NumberCellRenderer( final boolean setAsRowHeader,
-                               final float fontSize,
-                               final String units,
-                               final boolean stripPositiveSign ) {
+    public JxNumberCellRenderer(final boolean setAsRowHeader,
+                                final float fontSize,
+                                final String units,
+                                final boolean stripPositiveSign ) {
         // Always call the superclass constructor first!
         this( setAsRowHeader,
               fontSize,
@@ -172,14 +172,14 @@ public class NumberCellRenderer extends TextFieldCellRenderer {
      *
      * @version 1.0
      */
-    public NumberCellRenderer( final boolean isRowHeader,
-                               final float fontSize,
-                               final Color rowHeaderBackgroundColor,
-                               final Color rowHeaderForegroundColor,
-                               final Color cellBackgroundColor,
-                               final Color cellForegroundColor,
-                               final String units,
-                               final boolean stripPositiveSign ) {
+    public JxNumberCellRenderer(final boolean isRowHeader,
+                                final float fontSize,
+                                final Color rowHeaderBackgroundColor,
+                                final Color rowHeaderForegroundColor,
+                                final Color cellBackgroundColor,
+                                final Color cellForegroundColor,
+                                final String units,
+                                final boolean stripPositiveSign ) {
         // Always call the superclass constructor first!
         super( isRowHeader,
                CELL_ALIGNMENT,

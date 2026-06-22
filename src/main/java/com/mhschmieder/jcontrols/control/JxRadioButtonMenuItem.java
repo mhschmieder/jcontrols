@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -38,7 +38,7 @@ import javax.swing.Icon;
 import javax.swing.JRadioButtonMenuItem;
 import java.util.ResourceBundle;
 
-public class XRadioButtonMenuItem  extends JRadioButtonMenuItem {
+public class JxRadioButtonMenuItem extends JRadioButtonMenuItem {
     /**
     *
     */
@@ -47,11 +47,11 @@ public class XRadioButtonMenuItem  extends JRadioButtonMenuItem {
    // Cache the Client Properties (System Type, Locale, etc.).
    protected ClientProperties    _clientProperties;
 
-   public XRadioButtonMenuItem( final ClientProperties clientPropertie,
-                                   final String bundleName,
-                                   final String menuName,
-                                   final String itemName,
-                                   final Icon icon ) {
+   public JxRadioButtonMenuItem(final ClientProperties clientPropertie,
+                                final String bundleName,
+                                final String menuName,
+                                final String itemName,
+                                final Icon icon ) {
        // Always call the superclass constructor first!
        super();
 
@@ -65,11 +65,11 @@ public class XRadioButtonMenuItem  extends JRadioButtonMenuItem {
        }
    }
 
-   public XRadioButtonMenuItem( final ClientProperties clientProperties,
-                                   final String bundleName,
-                                   final String menuName,
-                                   final String itemName,
-                                   final String iconFilename ) {
+   public JxRadioButtonMenuItem(final ClientProperties clientProperties,
+                                final String bundleName,
+                                final String menuName,
+                                final String itemName,
+                                final String iconFilename ) {
        // Always call the superclass constructor first!
        super();
 

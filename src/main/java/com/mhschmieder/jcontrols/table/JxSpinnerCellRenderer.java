@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -36,93 +36,110 @@ import java.awt.Color;
 import java.awt.Component;
 
 /**
- * {@code BlankingCellRenderer} is a further specialization of
- * {@link TextFieldCellRenderer} to handle cells that need to be blank due to
- * the irrelevance of data in that cell position.
- * <p>
- * An example would be a table that has alternating rows of different data
- * types, where a customized rendering of cells not in use for each row is more
- * intuitive to the user than allowing a blank white cell that might be seen as
- * a run-time error or missing data.
+ * {@code SpinnerCellRenderer} is a further specialization of
+ * {@link JxCellRenderer} to handle cells that host spinners, which we generally
+ * want to fill the entire cell and which replace the current value display.
  *
  * @version 1.0
  *
  * @author Mark Schmieder
  */
-public class BlankingCellRenderer extends TextFieldCellRenderer {
+public class JxSpinnerCellRenderer extends JxCellRenderer {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
-    private static final long serialVersionUID = 1813023586744172543L;
+    private static final long serialVersionUID     = 6162479275552501309L;
 
     /**
-     * The "no content" blanking symbol is always centered for clarity.
+     * Spinners aren't likely to be used as row headers but may have a text
+     * label in that position so should be left-justified in such a case.
      */
-    public static final int   CELL_ALIGNMENT   = SwingConstants.CENTER;
+    private static final int  ROW_HEADER_ALIGNMENT = SwingConstants.LEFT;
 
     /**
-     * The text to use to indicate that a table cell is legitimately blank.
+     * The {@link Color} to use for row header cell background.
      */
-    private final String      blankingText;
+    private final Color       rowHeaderBackground;
+
+    /**
+     * The {@link Color} to use for row header cell foreground.
+     */
+    private final Color       rowHeaderForeground;
+
+    /**
+     * The {@link Color} to use for regular cell background.
+     */
+    private final Color       cellBackground;
+
+    /**
+     * The {@link Color} to use for regular cell foreground.
+     */
+    private final Color       cellForeground;
 
     //////////////////////////// Constructors ////////////////////////////////
 
     /**
-     * Constructs a Table Cell Renderer that customizes blank cells to be
-     * indicated in some special way, such as with a special background color
-     * and a symbol for data not applicable (often this is the minus sign).
+     * Constructs a Table Cell Renderer that is specialized to host spinners in
+     * place of cell values, using the default background and foreground colors.
      *
-     * @param isRowHeader
+     * @param setAsRowHeader
      *            {@code true} if this cell should be used as a row header
+     * @param cellAlignment
+     *            The alignment to use if this cell is not a row header
      * @param fontSize
      *            The preferred size of the fonts to be used by this table cell
      *            renderer
      *
      * @version 1.0
      */
-    public BlankingCellRenderer( final boolean isRowHeader, final float fontSize ) {
-        this( isRowHeader,
+    public JxSpinnerCellRenderer(final boolean setAsRowHeader,
+                                 final int cellAlignment,
+                                 final float fontSize ) {
+        this( setAsRowHeader,
+              cellAlignment,
               fontSize,
-              TableConstants.DEFAULT_BLANKING_BACKGROUND_COLOR,
-              TableConstants.DEFAULT_BLANKING_FOREGROUND_COLOR,
-              TableConstants.DEFAULT_BLANKING_TEXT );
+              TableConstants.DEFAULT_HEADER_BACKGROUND_COLOR,
+              TableConstants.DEFAULT_HEADER_FOREGROUND_COLOR,
+              TableConstants.DEFAULT_CELL_BACKGROUND_COLOR,
+              TableConstants.DEFAULT_CELL_FOREGROUND_COLOR );
     }
 
     /**
-     * Constructs a Table Cell Renderer that customizes blank cells to be
-     * indicated in some special way, such as with a special background color
-     * and a symbol for data not applicable (often this is the minus sign).
+     * Constructs a Table Cell Renderer that is specialized to host spinners in
+     * place of cell values, using custom background and foreground colors.
      *
-     * @param isRowHeader
+     * @param setAsRowHeader
      *            {@code true} if this cell should be used as a row header
+     * @param cellAlignment
+     *            The alignment to use if this cell is not a row header
      * @param fontSize
      *            The preferred size of the fonts to be used by this table cell
      *            renderer
+     * @param rowHeaderBackgroundColor
+     *            The {@link Color} to use for row header cell background
+     * @param rowHeaderForegroundColor
+     *            The {@link Color} to use for row header cell foreground
      * @param cellBackgroundColor
      *            The {@link Color} to use for regular cell background
      * @param cellForegroundColor
      *            The {@link Color} to use for regular cell foreground
-     * @param blankingSymbol
-     *            The text to use to indicate that a table cell is legitimately
-     *            blank
      *
      * @version 1.0
      */
-    public BlankingCellRenderer( final boolean isRowHeader,
+    public JxSpinnerCellRenderer(final boolean setAsRowHeader,
+                                 final int cellAlignment,
                                  final float fontSize,
+                                 final Color rowHeaderBackgroundColor,
+                                 final Color rowHeaderForegroundColor,
                                  final Color cellBackgroundColor,
-                                 final Color cellForegroundColor,
-                                 final String blankingSymbol ) {
+                                 final Color cellForegroundColor ) {
         // Always call the superclass constructor first!
-        super( isRowHeader,
-               CELL_ALIGNMENT,
-               fontSize,
-               TableConstants.DEFAULT_HEADER_BACKGROUND_COLOR,
-               TableConstants.DEFAULT_HEADER_FOREGROUND_COLOR,
-               cellBackgroundColor,
-               cellForegroundColor );
+        super( setAsRowHeader, ROW_HEADER_ALIGNMENT, cellAlignment, fontSize );
 
-        blankingText = blankingSymbol;
+        rowHeaderBackground = rowHeaderBackgroundColor;
+        rowHeaderForeground = rowHeaderForegroundColor;
+        cellBackground = cellBackgroundColor;
+        cellForeground = cellForegroundColor;
     }
 
     /////////////// DefaultTableCellRenderer method overrides ////////////////
@@ -162,10 +179,9 @@ public class BlankingCellRenderer extends TextFieldCellRenderer {
                                                     final boolean hasFocus,
                                                     final int row,
                                                     final int column ) {
-        final boolean applyRowHeaderStyle = cellIsRowHeader
-                && ( column == TableConstants.COLUMN_ROW_HEADER );
-
-        final Object newValue = applyRowHeaderStyle ? value : blankingText;
+        final Object newValue = ( value instanceof Number )
+            ? ( Number ) value
+            : ( value instanceof String ) ? ( String ) value : new Integer( 1 );
 
         final Component component = super.getTableCellRendererComponent( table,
                                                                          newValue,
@@ -173,6 +189,20 @@ public class BlankingCellRenderer extends TextFieldCellRenderer {
                                                                          hasFocus,
                                                                          row,
                                                                          column );
+
+        final boolean applyRowHeaderStyle = cellIsRowHeader
+                && ( column == TableConstants.COLUMN_ROW_HEADER );
+
+        // Set the background and foreground colors based on whether the cell is
+        // in the header column location and is to be treated as a row header.
+        final Color background = applyRowHeaderStyle
+            ? rowHeaderBackground
+            : isSelected ? table.getSelectionBackground() : cellBackground;
+        final Color foreground = applyRowHeaderStyle
+            ? rowHeaderForeground
+            : isSelected ? table.getSelectionForeground() : cellForeground;
+        component.setBackground( background );
+        component.setForeground( foreground );
 
         return component;
     }

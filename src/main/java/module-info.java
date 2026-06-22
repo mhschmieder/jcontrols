@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020, 2026 Mark Schmieder. All rights reserved.
+ * Copyright (c) 2024, 2026 Mark Schmieder. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,23 +21,23 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
-package com.mhschmieder.jcontrols.table;
-
-/**
- * {@code AngleCellRenderer} is a further specialization of
- * {@link NumberCellRenderer} to deal with the specifics of angle formatting.
- *
- * @version 1.0
- *
- * @author Mark Schmieder
- */
-public class AngleCellRenderer {
-
+module jcontrols {
+    exports com.mhschmieder.jcontrols.component;
+    exports com.mhschmieder.jcontrols.control;
+    exports com.mhschmieder.jcontrols.event;
+    exports com.mhschmieder.jcontrols.icon;
+    exports com.mhschmieder.jcontrols.table;
+    exports com.mhschmieder.jcontrols.util;
+    requires commons.math3;
+    requires java.desktop;
+    requires jcommons;
+    requires jgraphics;
+    requires jphysics;
 }

@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -51,18 +51,18 @@ public final class CellRendererFactory {
     private CellRendererFactory() {}
 
     /**
-     * Returns a {@link TextFieldCellRenderer} with appropriate settings for
+     * Returns a {@link JxTextFieldCellRenderer} with appropriate settings for
      * read-only labels.
      *
      * @param fontSize
      *            The preferred size of the fonts to be used by the table cells
-     * @return A {@link TextFieldCellRenderer} with appropriate settings for
+     * @return A {@link JxTextFieldCellRenderer} with appropriate settings for
      *         read-only labels
      *
      * @version 1.0
      */
-    public static TextFieldCellRenderer makeStaticLabelCellRenderer( final float fontSize ) {
-        return new TextFieldCellRenderer( false,
+    public static JxTextFieldCellRenderer makeStaticLabelCellRenderer(final float fontSize ) {
+        return new JxTextFieldCellRenderer( false,
                                           SwingConstants.CENTER,
                                           fontSize,
                                           TableConstants.DEFAULT_HEADER_BACKGROUND_COLOR,
@@ -72,18 +72,18 @@ public final class CellRendererFactory {
     }
 
     /**
-     * Returns a {@link TextFieldCellRenderer} with appropriate settings for
+     * Returns a {@link JxTextFieldCellRenderer} with appropriate settings for
      * editable labels.
      *
      * @param fontSize
      *            The preferred size of the fonts to be used by the table cells
-     * @return A {@link TextFieldCellRenderer} with appropriate settings for
+     * @return A {@link JxTextFieldCellRenderer} with appropriate settings for
      *         editable labels
      *
      * @version 1.0
      */
     public static DefaultTableCellRenderer makeDynamicLabelCellRenderer( final float fontSize ) {
-        return new TextFieldCellRenderer( false,
+        return new JxTextFieldCellRenderer( false,
                                           SwingConstants.LEFT,
                                           fontSize,
                                           TableConstants.DEFAULT_HEADER_BACKGROUND_COLOR,
@@ -93,7 +93,7 @@ public final class CellRendererFactory {
     }
 
     /**
-     * Returns a {@link NumberCellRenderer} with appropriate settings for
+     * Returns a {@link JxNumberCellRenderer} with appropriate settings for
      * editable angles that include Angle Units in their formatting.
      * <p>
      * Once the math library and related commons libraries are published, the
@@ -105,15 +105,16 @@ public final class CellRendererFactory {
      *            {@code true} if this cell should be used as a row header
      * @param fontSize
      *            The preferred size of the fonts to be used by the table cells
-     * @return A {@link NumberCellRenderer} with appropriate settings for
+     * @return A {@link JxNumberCellRenderer} with appropriate settings for
      *         editable angles
      *
      * @version 1.0
      */
     @SuppressWarnings("nls")
-    public static DefaultTableCellRenderer makeAngleCellRenderer( final boolean setAsRowHeader,
-                                                                  final float fontSize ) {
-        return new NumberCellRenderer( setAsRowHeader,
+    public static DefaultTableCellRenderer makeAngleCellRenderer(
+            final boolean setAsRowHeader,
+            final float fontSize ) {
+        return new JxNumberCellRenderer( setAsRowHeader,
                                        fontSize,
                                        TableConstants.DEFAULT_HEADER_BACKGROUND_COLOR,
                                        TableConstants.DEFAULT_HEADER_FOREGROUND_COLOR,
@@ -124,16 +125,17 @@ public final class CellRendererFactory {
     }
 
     /**
-     * Returns a {@link ToggleButtonCellRenderer} stylized for Visible vs.
+     * Returns a {@link JxToggleButtonCellRenderer} stylized for Visible vs.
      * Hidden status, initially localized to the US English default labels.
      *
      * @param fontSize
      *            The preferred size of the fonts to be used by the table cells
-     * @return A {@link ToggleButtonCellRenderer} stylized for Visible vs.
+     * @return A {@link JxToggleButtonCellRenderer} stylized for Visible vs.
      *         Hidden status
      */
-    public static DefaultTableCellRenderer makeDisplayCellRenderer( final float fontSize ) {
-        return new ToggleButtonCellRenderer( false,
+    public static DefaultTableCellRenderer makeDisplayCellRenderer(
+            final float fontSize ) {
+        return new JxToggleButtonCellRenderer( false,
                                              fontSize,
                                              TableConstants.DEFAULT_VISIBLE_TEXT,
                                              TableConstants.DEFAULT_HIDDEN_TEXT,
@@ -142,5 +144,4 @@ public final class CellRendererFactory {
                                              TableConstants.DEFAULT_VISIBLE_FOREGROUND_COLOR,
                                              TableConstants.DEFAULT_HIDDEN_FOREGROUND_COLOR );
     }
-
 }

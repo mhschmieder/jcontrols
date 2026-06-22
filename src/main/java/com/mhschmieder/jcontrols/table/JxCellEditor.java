@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.table;
 
@@ -45,7 +45,7 @@ import javax.swing.JTextField;
  *
  * @author Mark Schmieder
  */
-public abstract class XCellEditor extends DefaultCellEditor {
+public abstract class JxCellEditor extends DefaultCellEditor {
     /**
      * Unique Serial Version ID for this class, to avoid class loader conflicts.
      */
@@ -84,7 +84,7 @@ public abstract class XCellEditor extends DefaultCellEditor {
      *
      * @version 1.0
      */
-    public XCellEditor( final JTextField textField,
+    public JxCellEditor(final JTextField textField,
                         final boolean isRowHeader,
                         final boolean isEnabled,
                         final boolean isVisible ) {
@@ -110,7 +110,7 @@ public abstract class XCellEditor extends DefaultCellEditor {
      *
      * @version 1.0
      */
-    public XCellEditor( final JCheckBox checkBox,
+    public JxCellEditor(final JCheckBox checkBox,
                         final boolean isRowHeader,
                         final boolean isEnabled,
                         final boolean isVisible ) {
@@ -136,7 +136,7 @@ public abstract class XCellEditor extends DefaultCellEditor {
      *
      * @version 1.0
      */
-    public XCellEditor( final JComboBox< String > comboBox,
+    public JxCellEditor(final JComboBox< String > comboBox,
                         final boolean isRowHeader,
                         final boolean isEnabled,
                         final boolean isVisible ) {

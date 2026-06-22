@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -38,7 +38,7 @@ import javax.swing.Icon;
 import javax.swing.JMenuItem;
 import java.util.ResourceBundle;
 
-public class XMenuItem  extends JMenuItem {
+public class JxMenuItem extends JMenuItem {
     /**
      *
      */
@@ -48,11 +48,11 @@ public class XMenuItem  extends JMenuItem {
     protected ClientProperties    _clientProperties;
 
     // TODO: Investigate the XIcon class that was in the API before.
-    public XMenuItem(    final ClientProperties clientProperties,
-                           final String bundleName,
-                           final String menuName,
-                           final String itemName,
-                           final Icon icon ) {
+    public JxMenuItem(final ClientProperties clientProperties,
+                      final String bundleName,
+                      final String menuName,
+                      final String itemName,
+                      final Icon icon ) {
        // Always call the superclass constructor first!
        super();
 
@@ -66,11 +66,11 @@ public class XMenuItem  extends JMenuItem {
        }
    }
 
-   public XMenuItem(    final ClientProperties sessionContext,
-                           final String bundleName,
-                           final String menuName,
-                           final String itemName,
-                           final String iconFilename ) {
+   public JxMenuItem(final ClientProperties sessionContext,
+                     final String bundleName,
+                     final String menuName,
+                     final String itemName,
+                     final String iconFilename ) {
        // Always call the superclass constructor first!
        super();
 
@@ -84,12 +84,12 @@ public class XMenuItem  extends JMenuItem {
        }
    }
 
-   public XMenuItem(    final ClientProperties sessionContext,
-                           final String bundleName,
-                           final String menuName,
-                           final String itemName,
-                           final String enabledconFilename,
-                           final String disabledconFilename ) {
+   public JxMenuItem(final ClientProperties sessionContext,
+                     final String bundleName,
+                     final String menuName,
+                     final String itemName,
+                     final String enabledconFilename,
+                     final String disabledconFilename ) {
        // Always call the superclass constructor first!
        super();
 

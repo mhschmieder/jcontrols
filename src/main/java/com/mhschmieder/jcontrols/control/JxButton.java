@@ -21,12 +21,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
- * This file is part of the GuiToolkit Library
+ * This file is part of the jcontrols Library
  *
- * You should have received a copy of the MIT License along with the
- * GuiToolkit Library. If not, see <https://opensource.org/licenses/MIT>.
+ * You should have received a copy of the MIT License along with the jcontrols
+ * Library. If not, see <https://opensource.org/licenses/MIT>.
  *
- * Project: https://github.com/mhschmieder/guitoolkit
+ * Project: https://github.com/mhschmieder/jcontrols
  */
 package com.mhschmieder.jcontrols.control;
 
@@ -63,7 +63,7 @@ import java.util.ResourceBundle;
  *
  * @author Mark Schmieder
  */
-public class XButton extends JButton {
+public class JxButton extends JButton {
    /**
     *
     */
@@ -87,7 +87,7 @@ public class XButton extends JButton {
    // TODO: Extract resource strings for all buttons that use this
    //  constructor, so we can have it invoke the fully-qualified constructor and
    //  use the resource extraction methodology for localization.
-   public XButton( final ClientProperties clientProperties,
+   public JxButton(final ClientProperties clientProperties,
                    final String buttonText,
                    final String toolTipText,
                    final String iconFilename ) {
@@ -112,12 +112,12 @@ public class XButton extends JButton {
    // TODO: Extract resource strings for all buttons that use this
    //  constructor, so we can have it invoke the fully-qualified constructor and
    //  use the resource extraction methodology for localization.
-   public XButton( final ClientProperties clientProperties,
-                       final String buttonText,
-                       final String toolTipText,
-                       final String iconFilename,
-                       final Color backgroundColor,
-                       final Color foregroundColor ) {
+   public JxButton(final ClientProperties clientProperties,
+                   final String buttonText,
+                   final String toolTipText,
+                   final String iconFilename,
+                   final Color backgroundColor,
+                   final Color foregroundColor ) {
        // Always call the superclass constructor first!
        this( clientProperties, buttonText, toolTipText, iconFilename );
 
@@ -125,11 +125,11 @@ public class XButton extends JButton {
        setForeground( foregroundColor );
    }
 
-   public XButton( final ClientProperties clientProperties,
-                       final String bundleName,
-                       final String groupName,
-                       final String itemName,
-                       final String iconFilename ) {
+   public JxButton(final ClientProperties clientProperties,
+                   final String bundleName,
+                   final String groupName,
+                   final String itemName,
+                   final String iconFilename ) {
        // Always call the superclass constructor first!
        super();
 
@@ -148,12 +148,12 @@ public class XButton extends JButton {
        }
    }
 
-   public XButton( final ClientProperties clientProperties,
-                       final String bundleName,
-                       final String groupName,
-                       final String itemName,
-                       final String enabledIconFilename,
-                       final String disabledIconFilename ) {
+   public JxButton(final ClientProperties clientProperties,
+                   final String bundleName,
+                   final String groupName,
+                   final String itemName,
+                   final String enabledIconFilename,
+                   final String disabledIconFilename ) {
        // Always call the superclass constructor first!
        super();
 
