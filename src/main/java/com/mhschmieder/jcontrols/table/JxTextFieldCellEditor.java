@@ -64,8 +64,6 @@ public class JxTextFieldCellEditor extends JxCellEditor {
      *            {@code true} if this cell should be enabled by default
      * @param isVisible
      *            {@code true} if this cell should be visible by default
-     *
-     * @version 1.0
      */
     public JxTextFieldCellEditor(final boolean isRowHeader,
                                  final boolean isEnabled,
@@ -88,8 +86,6 @@ public class JxTextFieldCellEditor extends JxCellEditor {
      *            {@code true} if this cell should be enabled by default
      * @param isVisible
      *            {@code true} if this cell should be visible by default
-     *
-     * @version 1.0
      */
     public JxTextFieldCellEditor(final JTextField textField,
                                  final boolean isRowHeader,
@@ -150,8 +146,6 @@ public class JxTextFieldCellEditor extends JxCellEditor {
      * @param column
      *            The column of the cell being edited
      * @return The component for editing
-     *
-     * @version 1.0
      */
     @Override
     public Component getTableCellEditorComponent( final JTable table,
